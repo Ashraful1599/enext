@@ -15,7 +15,7 @@ export default function Document() {
             name="viewport"
             content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
           />
-          <title>Riode - Ultimate eCommerce Template</title>
+          <title>Ecommerce project - enext</title>
           <meta name="keywords" content="HTML5 Template" />
           <meta
             name="description"
