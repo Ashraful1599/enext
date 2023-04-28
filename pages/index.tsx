@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 
 
-const Homepage = (props) => {
+const Homepage = (props:any) => {
 
   const { products } = props
 
@@ -389,12 +389,12 @@ console.log(products);
 
 
         {
-          products.data.map((item: any, i)=>{
+          products.data.map((item: any, i:any)=>{
             
             return(
               <div key={i} className="product text-center">
               <figure className="product-media">
-                <a href={item.slug}>
+              <Link href={"product/"+item.slug}>
                   <Image
                     src={item.image.original}
                     alt="Blue Pinafore Denim Dress"
@@ -402,7 +402,7 @@ console.log(products);
                     height={315}
                     style={{ backgroundColor: "#f2f3f5" }}
                   />
-                </a>
+                </Link>
                 <div className="product-label-group">
                   <label className="product-label label-new">new</label>
                 </div>
@@ -598,12 +598,12 @@ console.log(products);
               }"
       >
         {
-          products.data.map((item: any, i)=>{
+          products.data.map((item: any, i:any)=>{
             
             return(
               <div key={i} className="product text-center">
               <figure className="product-media">
-                <a href={item.slug}>
+                <Link href={"product/"+item.slug}>
                   <Image
                     src={item.image.original}
                     alt="Blue Pinafore Denim Dress"
@@ -611,7 +611,7 @@ console.log(products);
                     height={315}
                     style={{ backgroundColor: "#f2f3f5" }}
                   />
-                </a>
+                </Link>
                 <div className="product-label-group">
                   <label className="product-label label-new">new</label>
                 </div>
