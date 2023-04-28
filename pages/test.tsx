@@ -9,18 +9,43 @@ import { useEffect, useState } from 'react';
 
 
 
-const Homepage = (props) => {
-
-  const { products } = props
-
+const Homepage = async (
+  _props: InferGetStaticPropsType<typeof getStaticProps>
+) => {
   const router = useRouter()
   const { t } = useTranslation('common')
 
-console.log(products);
+ // const [data, setData] = useState([1,2,3]);
+
+	// const getProducts = async () => {
+	// 	try {
+	// 		const res = axios.get('https://api.shaktidurgaarchive.com/products')
+	// 		const data = await res.json();
+	// 		console.log(data);
+	// 	} catch (err) {
+	// 		console.log(err);
+		
+	// };
+
+  // const pdata = await fetch('https://api.shaktidurgaarchive.com/products')
+  // const products = await pdata.json()
+ // return { props: { products } }
+
+
+
+// useEffect(()=>{
+
+//   fetch('https://api.shaktidurgaarchive.com/products')
+//   .then( (response) => response.json() )
+//   .then( (data) => setData(data.data) )
+
+// },[])
+
+//console.log(products);
 
 
   return (
-
+ 
 
 
     <>
@@ -388,15 +413,15 @@ console.log(products);
       >
 
 
-        {
-          products.data.map((item: any, i)=>{
+        {/* {
+          productsdata.map((item: any, i: any)=>{
             
-            return(
+         //   return(
               <div key={i} className="product text-center">
               <figure className="product-media">
-                <a href={item.slug}>
+                <a href="product.html">
                   <Image
-                    src={item.image.original}
+                    src="/assets/images/demos/demo1/products/product1.jpg"
                     alt="Blue Pinafore Denim Dress"
                     width={280}
                     height={315}
@@ -432,7 +457,6 @@ console.log(products);
                   >
                     Quick View
                   </a>
-                
                 </div>
               </figure>
               <div className="product-details">
@@ -443,22 +467,23 @@ console.log(products);
                   <a href="product.html">{item.name}</a>
                 </h3>
                 <div className="product-price">
-                  <span className="price">${item.price}</span>
+                  <span className="price">$140.00</span>
                 </div>
                 <div className="ratings-container">
                   <div className="ratings-full">
-                    <span className="ratings" style={{ width: (item.ratings*10)*2+"%" }} />
+                    <span className="ratings" style={{ width: "100%" }} />
                     <span className="tooltiptext tooltip-top" />
                   </div>
                   <a href="product.html" className="rating-reviews">
-                    ( {item.total_reviews} reviews )
+                    ( 12 reviews )
                   </a>
                 </div>
               </div>
             </div>
-            )
+         //   )
           })
-        } 
+        } */}
+
 
       </div>
     </section>
@@ -597,77 +622,316 @@ console.log(products);
                   }
               }"
       >
-        {
-          products.data.map((item: any, i)=>{
-            
-            return(
-              <div key={i} className="product text-center">
-              <figure className="product-media">
-                <a href={item.slug}>
-                  <Image
-                    src={item.image.original}
-                    alt="Blue Pinafore Denim Dress"
-                    width={280}
-                    height={315}
-                    style={{ backgroundColor: "#f2f3f5" }}
-                  />
-                </a>
-                <div className="product-label-group">
-                  <label className="product-label label-new">new</label>
-                </div>
-                <div className="product-action-vertical">
-                  <a
-                    href="#"
-                    className="btn-product-icon btn-cart"
-                    data-toggle="modal"
-                    data-target="#addCartModal"
-                    title="Add to cart"
-                  >
-                    <i className="d-icon-bag" />
-                  </a>
-                  <a
-                    href="#"
-                    className="btn-product-icon btn-wishlist"
-                    title="Add to wishlist"
-                  >
-                    <i className="d-icon-heart" />
-                  </a>
-                </div>
-                <div className="product-action">
-                  <a
-                    href="#"
-                    className="btn-product btn-quickview"
-                    title="Quick View"
-                  >
-                    Quick View
-                  </a>
-                
-                </div>
-              </figure>
-              <div className="product-details">
-                <div className="product-cat">
-                  <a href="shop-grid-3cols.html">Clothing</a>
-                </div>
-                <h3 className="product-name">
-                  <a href="product.html">{item.name}</a>
-                </h3>
-                <div className="product-price">
-                  <span className="price">${item.price}</span>
-                </div>
-                <div className="ratings-container">
-                  <div className="ratings-full">
-                    <span className="ratings" style={{ width: (item.ratings*10)*2+"%" }} />
-                    <span className="tooltiptext tooltip-top" />
-                  </div>
-                  <a href="product.html" className="rating-reviews">
-                    ( {item.total_reviews} reviews )
-                  </a>
-                </div>
-              </div>
+        <div className="product text-center">
+          <figure className="product-media">
+            <a href="product.html">
+              <Image
+                src="/assets/images/demos/demo1/products/product5.jpg"
+                alt="Blue Pinafore Denim Dress"
+                width={220}
+                height={245}
+                style={{ backgroundColor: "#f2f3f5" }}
+              />
+            </a>
+            <div className="product-action-vertical">
+              <a
+                href="#"
+                className="btn-product-icon btn-cart"
+                data-toggle="modal"
+                data-target="#addCartModal"
+                title="Add to cart"
+              >
+                <i className="d-icon-bag" />
+              </a>
+              <a
+                href="#"
+                className="btn-product-icon btn-wishlist"
+                title="Add to wishlist"
+              >
+                <i className="d-icon-heart" />
+              </a>
             </div>
-            )
-          })
-        } 
+            <div className="product-action">
+              <a
+                href="#"
+                className="btn-product btn-quickview"
+                title="Quick View"
+              >
+                Quick View
+              </a>
+            </div>
+          </figure>
+          <div className="product-details">
+            <div className="product-cat">
+              <a href="shop-grid-3cols.html">Watches</a>
+            </div>
+            <h3 className="product-name">
+              <a href="product.html">Fashion Electric Wrist Watch</a>
+            </h3>
+            <div className="product-price">
+              <span className="price">$270.99</span>
+            </div>
+            <div className="ratings-container">
+              <div className="ratings-full">
+                <span className="ratings" style={{ width: "40%" }} />
+                <span className="tooltiptext tooltip-top" />
+              </div>
+              <a href="product.html" className="rating-reviews">
+                ( 15 reviews )
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="product text-center">
+          <figure className="product-media">
+            <a href="product.html">
+              <Image
+                src="/assets/images/demos/demo1/products/product6.jpg"
+                alt="Blue Pinafore Denim Dress"
+                width={220}
+                height={245}
+                style={{ backgroundColor: "#f2f3f5" }}
+              />
+            </a>
+            <div className="product-label-group">
+              <label className="product-label label-new">New</label>
+            </div>
+            <div className="product-action-vertical">
+              <a
+                href="#"
+                className="btn-product-icon btn-cart"
+                data-toggle="modal"
+                data-target="#addCartModal"
+                title="Add to cart"
+              >
+                <i className="d-icon-bag" />
+              </a>
+              <a
+                href="#"
+                className="btn-product-icon btn-wishlist"
+                title="Add to wishlist"
+              >
+                <i className="d-icon-heart" />
+              </a>
+            </div>
+            <div className="product-action">
+              <a
+                href="#"
+                className="btn-product btn-quickview"
+                title="Quick View"
+              >
+                Quick View
+              </a>
+            </div>
+          </figure>
+          <div className="product-details">
+            <div className="product-cat">
+              <a href="shop-grid-3cols.html">Women</a>
+            </div>
+            <h3 className="product-name">
+              <a href="product.html">Hempen Hood a Mourner</a>
+            </h3>
+            <div className="product-price">
+              <span className="price">$12.83</span>
+            </div>
+            <div className="ratings-container">
+              <div className="ratings-full">
+                <span className="ratings" style={{ width: "20%" }} />
+                <span className="tooltiptext tooltip-top" />
+              </div>
+              <a href="product.html" className="rating-reviews">
+                ( 3 reviews )
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="product text-center">
+          <figure className="product-media">
+            <a href="product.html">
+              <Image
+                src="/assets/images/demos/demo1/products/product7.jpg"
+                alt="Blue Pinafore Denim Dress"
+                width={220}
+                height={245}
+                style={{ backgroundColor: "#f2f3f5" }}
+              />
+            </a>
+            <div className="product-action-vertical">
+              <a
+                href="#"
+                className="btn-product-icon btn-cart"
+                data-toggle="modal"
+                data-target="#addCartModal"
+                title="Add to cart"
+              >
+                <i className="d-icon-bag" />
+              </a>
+              <a
+                href="#"
+                className="btn-product-icon btn-wishlist"
+                title="Add to wishlist"
+              >
+                <i className="d-icon-heart" />
+              </a>
+            </div>
+            <div className="product-action">
+              <a
+                href="#"
+                className="btn-product btn-quickview"
+                title="Quick View"
+              >
+                Quick View
+              </a>
+            </div>
+          </figure>
+          <div className="product-details">
+            <div className="product-cat">
+              <a href="shop-grid-3cols.html">Women</a>
+            </div>
+            <h3 className="product-name">
+              <a href="product.html">Women Beautiful Headgear</a>
+            </h3>
+            <div className="product-price">
+              <span className="price">$78.24</span>
+            </div>
+            <div className="ratings-container">
+              <div className="ratings-full">
+                <span className="ratings" style={{ width: "40%" }} />
+                <span className="tooltiptext tooltip-top" />
+              </div>
+              <a href="product.html" className="rating-reviews">
+                ( 8 reviews )
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="product text-center">
+          <figure className="product-media">
+            <a href="product.html">
+              <Image
+                src="/assets/images/demos/demo1/products/product8.jpg"
+                alt="Blue Pinafore Denim Dress"
+                width={220}
+                height={245}
+                style={{ backgroundColor: "#f2f3f5" }}
+              />
+            </a>
+            <div className="product-label-group">
+              <span className="product-label label-new">New</span>
+            </div>
+            <div className="product-action-vertical">
+              <a
+                href="#"
+                className="btn-product-icon btn-cart"
+                data-toggle="modal"
+                data-target="#addCartModal"
+                title="Add to cart"
+              >
+                <i className="d-icon-bag" />
+              </a>
+              <a
+                href="#"
+                className="btn-product-icon btn-wishlist"
+                title="Add to wishlist"
+              >
+                <i className="d-icon-heart" />
+              </a>
+            </div>
+            <div className="product-action">
+              <a
+                href="#"
+                className="btn-product btn-quickview"
+                title="Quick View"
+              >
+                Quick View
+              </a>
+            </div>
+          </figure>
+          <div className="product-details">
+            <div className="product-cat">
+              <a href="shop-grid-3cols.html">Shoes</a>
+            </div>
+            <h3 className="product-name">
+              <a href="product.html">Converse Training Shoes</a>
+            </h3>
+            <div className="product-price">
+              <span className="price">$113.00</span>
+            </div>
+            <div className="ratings-container">
+              <div className="ratings-full">
+                <span className="ratings" style={{ width: "80%" }} />
+                <span className="tooltiptext tooltip-top" />
+              </div>
+              <a href="product.html" className="rating-reviews">
+                ( 11 reviews )
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="product text-center">
+          <figure className="product-media">
+            <a href="product.html">
+              <Image
+                src="/assets/images/demos/demo1/products/product9.jpg"
+                alt="Blue Pinafore Denim Dress"
+                width={220}
+                height={245}
+                style={{ backgroundColor: "#f2f3f5" }}
+              />
+            </a>
+            <div className="product-label-group">
+              <span className="product-label label-sale">27% Off</span>
+            </div>
+            <div className="product-action-vertical">
+              <a
+                href="#"
+                className="btn-product-icon btn-cart"
+                data-toggle="modal"
+                data-target="#addCartModal"
+                title="Add to cart"
+              >
+                <i className="d-icon-bag" />
+              </a>
+              <a
+                href="#"
+                className="btn-product-icon btn-wishlist"
+                title="Add to wishlist"
+              >
+                <i className="d-icon-heart" />
+              </a>
+            </div>
+            <div className="product-action">
+              <a
+                href="#"
+                className="btn-product btn-quickview"
+                title="Quick View"
+              >
+                Quick View
+              </a>
+            </div>
+          </figure>
+          <div className="product-details">
+            <div className="product-cat">
+              <a href="shop-grid-3cols.html">Bags &amp; Backpacks</a>
+            </div>
+            <h3 className="product-name">
+              <a href="product.html">Womens Fashion Handbag</a>
+            </h3>
+            <div className="product-price">
+              <ins className="new-price">$53.99</ins>
+              <del className="old-price">$67.99</del>
+            </div>
+            <div className="ratings-container">
+              <div className="ratings-full">
+                <span className="ratings" style={{ width: "60%" }} />
+                <span className="tooltiptext tooltip-top" />
+              </div>
+              <a href="product.html" className="rating-reviews">
+                ( 16 reviews )
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
     <section
@@ -1321,38 +1585,21 @@ console.log(products);
 }
 
 // or getServerSideProps: GetServerSideProps<Props> = async ({ locale })
-// export const getStaticProps: GetStaticProps = async ({
-//   locale,
-// }) => (
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+}) => (
   
-//   {
-//   props: {
-//     ...(await serverSideTranslations(locale ?? 'en', [
-//       'common',
-//     ])),
-//     prod: await  fetch('https://api.shaktidurgaarchive.com/products').then( (response) => response.json() ).then( (data)=>{return data} )
-//   },
-// })
+  {
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', [
+      'common',
+    ])),
+   // prod: await  fetch('https://api.shaktidurgaarchive.com/products').then( (response) => response.json() ).then( (data)=>{return data} )
+  },
+})
 
 
 
-export async function getStaticProps() {
-  const data =  await fetch('https://api.shaktidurgaarchive.com/products')
-  const products = await data.json()
- // console.log(product);
-  return { 
-    props: { 
-      products
-     },
-  }
-}
 
-
-//   props: {
-//     ...(await serverSideTranslations(locale ?? 'en', [
-//       'common',
-//     ])),
-//     prod: await  fetch('https://api.shaktidurgaarchive.com/products').then( (response) => response.json() ).then( (data)=>{return data} )
-//   },
 
 export default Homepage
